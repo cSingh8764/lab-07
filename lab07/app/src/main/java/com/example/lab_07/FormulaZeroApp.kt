@@ -1,12 +1,18 @@
 package com.example.lab_07
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
-class FormulaZeroApp {
+@Composable
+fun FormulaZeroApp() {
+    val navController = rememberNavController()
 
-    @Composable
-    fun FormulaZeroApp(){}
+    NavHost(navController = navController, startDestination = "home") {
+        composable("home") { HomeScreen(navController) }
+        composable("races") { UpcomingRacesScreen(navController) }
+    }
 
 }
 
